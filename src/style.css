@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* Custom theme for Screenshots Banana */
+@theme {
+	--color-banana: #fbbf24;
+	--color-banana-dark: #f59e0b;
+	--font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Base styles - fixed viewport, no body scroll */
+html, body {
+	@apply m-0 p-0 h-screen overflow-hidden bg-zinc-100 text-zinc-900 antialiased;
+}
+
+#app {
+	@apply flex flex-col h-screen overflow-hidden bg-zinc-100;
+}
+
+/* Custom scrollbar - thin & subtle */
+.custom-scrollbar {
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
+}
+
+.custom-scrollbar:hover {
+	scrollbar-color: rgba(113, 113, 122, 0.5) transparent;
+}
+
+/* Webkit scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: transparent;
+	border-radius: 3px;
+	transition: background 0.2s;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+	background: rgba(113, 113, 122, 0.5);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: rgba(113, 113, 122, 0.7);
+}
+
+/* Always visible scrollbar variant */
+.custom-scrollbar-visible {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(113, 113, 122, 0.3) transparent;
+}
+
+.custom-scrollbar-visible::-webkit-scrollbar {
+	width: 6px;
+}
+
+.custom-scrollbar-visible::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.custom-scrollbar-visible::-webkit-scrollbar-thumb {
+	background: rgba(113, 113, 122, 0.3);
+	border-radius: 3px;
+}
+
+.custom-scrollbar-visible::-webkit-scrollbar-thumb:hover {
+	background: rgba(113, 113, 122, 0.5);
+}
+
+/* Smooth scrolling */
+.smooth-scroll {
+	scroll-behavior: smooth;
+}
+
+/* Prevent text selection during drag operations */
+.no-select {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Focus visible styles for accessibility */
+:focus-visible {
+	outline: 2px solid var(--color-banana);
+	outline-offset: 2px;
+}
+
+/* Resize handle for sidebar */
+.resize-handle {
+	position: relative;
+}
+
+.resize-handle::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 3px;
+	height: 24px;
+	background: rgba(161, 161, 170, 0.4);
+	border-radius: 2px;
+	opacity: 0;
+	transition: opacity 0.15s;
+}
+
+.resize-handle:hover::after {
+	opacity: 1;
+}
